@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="473.825" height="706.266" viewBox="0 0 473.825 706.266" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="_MG_1943 1" filter="url(#filter0)">
+<rect x="4.38675" y="4.38675" width="465.052" height="697.492" fill="url(#pattern0_0_68)"/>
+</g>
+<defs>
+<filter id="filter0" x="-2.19337" y="-2.19337"  width="473.825" height="706.266" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.22795942425727844 0.22795942425727844" numOctaves="3" seed="6728" />
+<feDisplacementMap in="shape" scale="8.7734909057617188" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="200%" height="200%" />
+<feMerge result="effect1_texture_0_68">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<pattern id="pattern0_0_68" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_0_68" transform="scale(0.000366166 0.000244141)"/>
+</pattern>
+<image id="image0_0_68" data-name="bg_removal [Background removed](edit).png" width="2731" height="4096" preserveAspectRatio="none" xlink:href="data:application/octet-stream;base64,"/>
+</defs>
+</svg>

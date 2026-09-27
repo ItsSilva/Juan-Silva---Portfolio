@@ -1,0 +1,33 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="509.271" height="340.218" viewBox="0 0 509.271 340.218" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="ye-junhao-8_TCLwEp-Lk-unsplash 1" filter="url(#filter0)">
+<rect x="1.05658" y="1.05658" width="507.158" height="338.105" fill="url(#pattern0_0_59)"/>
+</g>
+<defs>
+<filter id="filter0" x="-0.528289" y="-0.528289"  width="509.271" height="340.218" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.94645154476165771 0.94645154476165771" numOctaves="3" seed="4246" />
+<feDisplacementMap in="shape" scale="2.1131563186645508" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="200%" height="200%" />
+<feMerge result="effect1_texture_0_59">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+<feGaussianBlur stdDeviation="0.528289" result="effect2_foregroundBlur_0_59"/>
+<feTurbulence type="fractalNoise" baseFrequency="7.5716123580932617 7.5716123580932617" stitchTiles="stitch" numOctaves="3" result="noise" seed="3600" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect2_foregroundBlur_0_59" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect3_noise_0_59">
+<feMergeNode in="effect2_foregroundBlur_0_59" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<pattern id="pattern0_0_59" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_0_59" transform="scale(0.000520833 0.00078125)"/>
+</pattern>
+<image id="image0_0_59" data-name="ye-junhao-8_TCLwEp-Lk-unsplash(edit).jpg" width="1920" height="1280" preserveAspectRatio="none" xlink:href="data:application/octet-stream;base64,"/>
+</defs>
+</svg>
