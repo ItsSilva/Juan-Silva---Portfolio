@@ -1,5 +1,14 @@
 {
+  "title": "Juan Silva | UX/UI Designer",
   "description": "Explore my UX/UI design portfolio, featuring creative digital experiences, user-centered solutions, and projects that bring ideas to life.",
+  "language": "en",
+  "url": "https://juan-silva-portfolio.vercel.app/",
+  "icons": {
+    "icon": "/favicon.svg"
+  },
+  "openGraph": {
+    "siteName": "Juan Silva — Portfolio"
+  },
   "robots": {
     "index": false
   },

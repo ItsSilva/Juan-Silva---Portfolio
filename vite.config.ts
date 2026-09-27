@@ -52,6 +52,7 @@ type FigmaSiteConfiguration = {
   title?: string
   description?: string
   language?: string
+  url?: string
   robots?: {
     index?: boolean
   }
@@ -59,6 +60,7 @@ type FigmaSiteConfiguration = {
     icon?: string
   }
   openGraph?: {
+    siteName?: string
     image?: string
   }
   analytics?: {
@@ -91,6 +93,8 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const description = config.description ?? ''
   const favicon = config.icons?.icon ?? ''
   const socialImage = config.openGraph?.image ?? ''
+  const siteUrl = config.url ?? ''
+  const siteName = config.openGraph?.siteName ?? title
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
@@ -139,16 +143,28 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (favicon) {
           tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
         }
+        tags.push(
+          { tag: 'meta', attrs: { property: 'og:type', content: 'website' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:site_name', content: siteName }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'twitter:card', content: socialImage ? 'summary_large_image' : 'summary' }, injectTo: 'head' },
+        )
+        if (siteUrl) {
+          tags.push(
+            { tag: 'link', attrs: { rel: 'canonical', href: siteUrl }, injectTo: 'head' },
+            { tag: 'meta', attrs: { property: 'og:url', content: siteUrl }, injectTo: 'head' },
+          )
+        }
         if (title) {
           tags.push({ tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' })
+          tags.push({ tag: 'meta', attrs: { name: 'twitter:title', content: title }, injectTo: 'head' })
         }
         if (description) {
           tags.push({ tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' })
+          tags.push({ tag: 'meta', attrs: { name: 'twitter:description', content: description }, injectTo: 'head' })
         }
         if (socialImage) {
           tags.push(
             { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
-            { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' }, injectTo: 'head' },
             { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
           )
         }
