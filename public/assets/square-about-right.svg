@@ -1,0 +1,18 @@
+<svg width="143" height="143" viewBox="0 0 143 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_fg_125_446)">
+<rect x="16.2887" y="8.57253" width="117.666" height="117.666" transform="rotate(3.76 16.2887 8.57253)" stroke="#FF0103" stroke-width="3.38606"/>
+</g>
+<defs>
+<filter id="filter0_fg_125_446" x="-2.28882e-05" y="7.62939e-06" width="142.273" height="142.274" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="3.38606" result="effect1_foregroundBlur_125_446"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.29532858729362488 0.29532858729362488" numOctaves="3" seed="3977" />
+<feDisplacementMap in="effect1_foregroundBlur_125_446" scale="6.7721176147460938" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect2_texture_125_446">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>
+
