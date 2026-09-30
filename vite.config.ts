@@ -62,6 +62,9 @@ type FigmaSiteConfiguration = {
   openGraph?: {
     siteName?: string
     image?: string
+    imageAlt?: string
+    imageWidth?: number
+    imageHeight?: number
   }
   analytics?: {
     googleAnalyticsId?: string
@@ -92,8 +95,8 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const title = config.title ?? "Juan Silva | UX/UI Designer"
   const description = config.description ?? ''
   const favicon = config.icons?.icon ?? ''
-  const socialImage = config.openGraph?.image ?? ''
   const siteUrl = config.url ?? ''
+  const socialImage = config.openGraph?.image ? new URL(config.openGraph.image, siteUrl).href : ''
   const siteName = config.openGraph?.siteName ?? title
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
@@ -101,7 +104,10 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const headEnd = config.customScripts?.headEnd ?? ''
   const bodyStart = config.customScripts?.bodyStart ?? ''
   const bodyEnd = config.customScripts?.bodyEnd ?? ''
-  const robotsTxt = config.robots?.index === false ? 'User-agent: *\nDisallow: /\n' : ''
+  const preventIndexing = config.robots?.index === false || process.env.VERCEL_ENV === 'preview'
+  const robotsTxt = preventIndexing
+    ? 'User-agent: *\nDisallow: /\n'
+    : `User-agent: *\nAllow: /\n${siteUrl ? `Sitemap: ${new URL('/sitemap.xml', siteUrl).href}\n` : ''}`
 
   return {
     name: 'figma-site-configuration',
@@ -137,7 +143,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (description) {
           tags.push({ tag: 'meta', attrs: { name: 'description', content: description }, injectTo: 'head' })
         }
-        if (config.robots?.index === false) {
+        if (preventIndexing) {
           tags.push({ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' })
         }
         if (favicon) {
@@ -167,6 +173,17 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
             { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
             { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
           )
+          if (config.openGraph?.imageAlt) {
+            tags.push(
+              { tag: 'meta', attrs: { property: 'og:image:alt', content: config.openGraph.imageAlt }, injectTo: 'head' },
+              { tag: 'meta', attrs: { name: 'twitter:image:alt', content: config.openGraph.imageAlt }, injectTo: 'head' },
+            )
+          }
+          for (const dimension of ['width', 'height'] as const) {
+            const value = dimension === 'width' ? config.openGraph?.imageWidth : config.openGraph?.imageHeight
+            if (value) tags.push({ tag: 'meta', attrs: { property: `og:image:${dimension}`, content: String(value) }, injectTo: 'head' })
+          }
+          tags.push({ tag: 'meta', attrs: { property: 'og:image:type', content: 'image/png' }, injectTo: 'head' })
         }
 
         if (googleAnalyticsId) {

@@ -7,10 +7,14 @@
     "icon": "/favicon.svg"
   },
   "openGraph": {
-    "siteName": "Juan Silva — Portfolio"
+    "siteName": "Juan Silva — Portfolio",
+    "image": "/og-image.png",
+    "imageAlt": "Juan Silva — UX/UI and Interactive Media Design portfolio",
+    "imageWidth": 1200,
+    "imageHeight": 630
   },
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
